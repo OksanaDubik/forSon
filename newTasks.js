@@ -3,4 +3,4 @@ function num (a){
     console.log(x);
     return x;
 }
-num(2);
+num(2)
