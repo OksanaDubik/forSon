@@ -1,7 +1,7 @@
-function repeatOccurrences(){
-    let string = "ku ";
-    let num = 3;
-
-    console.log(string.repeat(num));
+function repeatOccurrences(string, num) {
+    let result = string.repeat(num)
+    console.log(result);
+    return result;
 }
-repeatOccurrences();
+
+repeatOccurrences(" ku", 3);

@@ -1,6 +1,7 @@
-function numberOccurrences (){
-    let string1 = "abababab";
-    let string2 = "ba";
-    console.log(string1.split(string2).length-1);
+function numberOccurrences(a, b) {
+    let result = a.split(b).length - 1;
+    console.log(result);
+    return result;
 }
-numberOccurrences()
+
+numberOccurrences("abababab", "ab");

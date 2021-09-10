@@ -1,6 +1,7 @@
-function includes (string1, string2){
-    let str1 = "Электричество";
-    let str2 = "Элео";
-    console.log(str1.includes(str2));
+function includes(string1, string2) {
+    let result = string1.includes(string2);
+    console.log(result);
+    return result;
 }
-includes()
+
+includes("электричество", "элек");
