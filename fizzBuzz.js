@@ -1,15 +1,13 @@
 function outputNumbers(amountNumbers) {
-    let increasingArr = 0;
     for (let i = 1; i <= amountNumbers; i++) {
-        increasingArr = increasingArr + 1;
-        if (increasingArr % 3 === 0 && increasingArr % 5 !== 0) {
+        if (i % 3 === 0 && i % 5 !== 0) {
             console.log("Fizz");
-        } else if (increasingArr % 5 === 0 && increasingArr % 3 !== 0) {
+        } else if (i % 5 === 0 && i % 3 !== 0) {
             console.log("Buzz");
-        } else if (increasingArr % 5 === 0 || increasingArr % 3 === 0) {
+        } else if (i % 5 === 0 || i % 3 === 0) {
             console.log("FizzBuzz");
         } else {
-            console.log(increasingArr);
+            console.log(i);
         }
     }
 }
