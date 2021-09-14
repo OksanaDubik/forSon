@@ -1,5 +1,5 @@
 function outputNumbers(amountNumbers) {
-    let arr = [1];
+    let arr = 1;
     for (let i = 1; i <= amountNumbers; i++) {
         let increasingArr = arr++;
         if (increasingArr % 3 === 0 && increasingArr % 5 !== 0) {
