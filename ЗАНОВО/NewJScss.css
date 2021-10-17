@@ -1,0 +1,22 @@
+header{
+    background: #1c1c9f;
+    display: flex;
+    justify-content:flex-end;
+    margin-bottom: 25px;
+}
+button{
+    border: 1px solid white;
+    color: white;
+    padding: 10px;
+    background: transparent;
+    margin: 10px;
+}
+main{
+    display: flex;
+    justify-content: space-around;
+
+}
+.goods-item{
+    border: 1px solid #1c1c9f;
+    padding: 20px;
+}
