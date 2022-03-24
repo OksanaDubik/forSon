@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Burger</title>
+</head>
+<body>
+
+<form action="#" id="uForm">
+
+    <fieldset>
+        <label>
+            <input type="radio" name="size" value="small" data-price="50" data-cal='200' data-tex="Маленький бургер"  checked> Маленький бургер
+        </label>
+        <label>
+            <input type="radio" name="size" value="big" data-price="100" data-cal='300' data-tex="Большой бургер" > Большой бургер
+            <fieldset>
+                <input type="radio" name="type" value="cheese" data-cal='25' data-tex="Сыр" > Сыр
+                <input type="radio" name="type" value="salad" data-cal='3' data-tex="Салат"> Салат
+                <input type="radio" name="type" value="potato" data-cal='55' data-tex="Картофель"> Картофель
+            </fieldset>
+        </label>
+    </fieldset>
+    <fieldset>
+        <label>
+            <input type="checkbox" name="add" value="seasoning" data-price="15" data-cal='5' data-tex="Приправа"> Приправа
+        </label>
+        <label>
+            <input type="checkbox" name="add" value="bacon" data-price="25" data-cal='20' data-tex="Бекон"> Бекон
+        </label>
+        <label>
+            <input type="checkbox" name="add" value="cheese" data-price="20" data-cal='25' data-tex="Сыр"> Сыр
+        </label>
+        <label>
+            <input type="checkbox" name="add" value="mayonese" data-price="10" data-cal='30' data-tex="Майонез"> Майонез
+        </label>
+    </fieldset>
+</form>
+<button id="okBtn">Done</button>
+
+<p id='price'>общая сумма: </p>
+<p id='calories'>Всего каллорий: </p>
+<p id="order">Ваш заказ:</p>
+<script src="burger.js"></script>
+</body>
+
+</html>
