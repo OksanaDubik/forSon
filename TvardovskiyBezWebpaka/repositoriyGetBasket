@@ -1,0 +1,31 @@
+{
+"totalAmount":24600,
+"countGoods": 4,
+"contents":
+  [
+  {
+    "id_product": 123,
+    "product_name": "Сапоги",
+    "price": 12000,
+    "amount": 1
+  },
+  {
+      "id_product": 789,
+      "product_name": "сумка",
+      "price": 7000,
+      "amount": 1
+    },
+    {
+        "id_product": 101,
+        "product_name": "платье",
+        "price": 4600,
+        "amount": 1
+      },
+  {
+    "id_product": 456,
+    "product_name": "Шарфик",
+    "price": 1000,
+    "amount": 1
+  }
+  ]
+}
