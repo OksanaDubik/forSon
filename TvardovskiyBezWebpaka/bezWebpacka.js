@@ -20,16 +20,16 @@ let items;//рабочий
 // let url = "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/catalogData.json"
 
 let url = "https://raw.githubusercontent.com/OksanaDubik/forSon/basket/TvardovskiyBezWebpaka/repositoriy"
+let urlBasket = "https://raw.githubusercontent.com/OksanaDubik/forSon/basket/TvardovskiyBezWebpaka/repositoriyGetBasket"
+makeGETRequest(urlBasket)
+    .then(data => {
+        items = data
+console.log(items)
 
-// makeGETRequest(url)
-//     .then(data => {
-//         items = data
-//
-//
-//     })
-//     .catch(err => {
-//         throw new Error(err)
-//     })
+    })
+    .catch(err => {
+        throw new Error(err)
+    })
 
 
 //костыли рабочие
@@ -97,13 +97,20 @@ class Basket {
     _render() {
 
         let htmlStr = '';
+        let countGoods= 0;
+        let countPrice = 0
+
         this.items.forEach(item => {
+            countPrice += item.price
+            countGoods += item.amount
             htmlStr += `<div class="basket-item">
                             <img src="${item.img} " width="70px" alt="${item.product_name} ">
                             <div class="product-desc">
                                 <p class="product-title">${item.product_name}</p>
                                 <p class="product-amount">${item.amount}</p>
                                 <p class="product-single-price">${item.price}</p>
+                                <p class="countGoods">${countGoods * countPrice}</p>
+                                <p class="totalAmount">${totalAmount}</p>
                             </div>
                             <div class="right-block">
                                 <p class="product-price">${item.price * item.amount}</p>
@@ -112,21 +119,19 @@ class Basket {
                         </div>`
         });
         document.querySelector(this.container).innerHTML = htmlStr;//находим товар,
+        console.log(countGoods)
+        console.log(countPrice)
     }
 
     add(item) {
 
-        makeGETRequest(url)
+        makeGETRequest(urlBasket)
             .then(data => {
 
-                data.map(el => {
-                    el.amount = "1"
-                })
+
 
                 items = data;
-                // items.map(el => {
-                //     el.amount = "1"
-                // })
+
 
                 let find = items.find(el => el.id_product == item.id);
 
