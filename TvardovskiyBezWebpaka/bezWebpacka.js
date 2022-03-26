@@ -1,50 +1,60 @@
 function makeGETRequest(url) {
-    return new Promise(res, rej)
-    {
+    return new Promise((res, rej) => {
         let xhr = new XMLHttpRequest();
         xhr.open('GET', url, true);
-        xhr.onreadystatechange = (aEvt) => {
+        xhr.onreadystatechange = () => {
             if (xhr.readyState == 4) {
                 if (xhr.status == 200) {
-                    res(xhr.responseText);
+                    res(JSON.parse(xhr.responseText));
                 } else {
-                    rej(" server Error ");
+                    rej(" *****server Error***** ");
                 }
-
             }
-        }
+        };
+
         xhr.send();
-    }
+    })
 }
 
-let data;
-let url = "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/catalogData.json"
+let items;//рабочий
+// let url = "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/catalogData.json"
+
+let url = "https://raw.githubusercontent.com/OksanaDubik/forSon/basket/TvardovskiyBezWebpaka/repositoriy"
+
+// makeGETRequest(url)
+//     .then(data => {
+//         items = data
+//
+//
+//     })
+//     .catch(err => {
+//         throw new Error(err)
+//     })
 
 
-
-
-
-let names = ['HTML5 & CSS3', 'JavaScript base', 'JavaScript advanced', 'PHP', 'React'];
-let prices = [100, 120, 130, 50, 150];
-let ids = [1, 2, 3, 4, 5];
-let imgs = ['http://placehold.it/200x150', 'http://placehold.it/200x150', 'http://placehold.it/200x150', 'http://placehold.it/200x150', 'http://placehold.it/200x150'];
-let amount = [1, 1, 1, 1, 1]
-
-let createItem = index => ({
-    product_name: names[index],
-    amount: amount[index],
-    price: prices[index],
-    id_product: ids[index],
-    img: imgs[index]
-});
-
-
-let fillCatalog = () => {
-    // ids.forEach((el, index) => {
-    //     catalog.items.push(createItem(index));
-    // })
-    return ids.map((el, index) => createItem(index))
-}
+//костыли рабочие
+// let names = ['HTML5 & CSS3', 'JavaScript base', 'JavaScript advanced', 'PHP', 'React'];
+// let prices = [100, 120, 130, 50, 150];
+// let ids = [1, 2, 3, 4, 5];
+// let imgs = ['http://placehold.it/200x150', 'http://placehold.it/200x150', 'http://placehold.it/200x150', 'http://placehold.it/200x150', 'http://placehold.it/200x150'];
+// let amount = [1, 1, 1, 1, 1]
+//
+// let createItem = index => ({
+//     product_name: names[index],
+//     amount: amount[index],
+//     price: prices[index],
+//     id_product: ids[index],
+//     img: imgs[index]
+// });
+//
+//
+//
+// let fillCatalog = () => {
+//     // ids.forEach((el, index) => {
+//     //     catalog.items.push(createItem(index));
+//     // })
+//     return ids.map((el, index) => createItem(index))
+// }
 
 /**
  *_eventHandler() - ф-я при нажатии на крестик в корзине: находим контейнер с выбранными товарами, цепляем клик к элементу, name которого равен  'remove'
@@ -62,7 +72,7 @@ class Basket {
     }
 
     init() {
-        this._render();
+        this._render();//рабочий
         this._eventHandler();
     }
 
@@ -85,6 +95,7 @@ class Basket {
     }
 
     _render() {
+
         let htmlStr = '';
         this.items.forEach(item => {
             htmlStr += `<div class="basket-item">
@@ -104,14 +115,65 @@ class Basket {
     }
 
     add(item) {
-        let find = this.items.find(el => el.id_product == item.id);
-        if (!find) {
-            this.items.push(createItem(+item.id - 1));
-        } else {
-            find.amount++;
-        }
-        this._render();
+
+        makeGETRequest(url)
+            .then(data => {
+
+                data.map(el => {
+                    el.amount = "1"
+                })
+
+                items = data;
+                // items.map(el => {
+                //     el.amount = "1"
+                // })
+
+                let find = items.find(el => el.id_product == item.id);
+
+                if (this.items.length===0) {
+
+                    this.items.push(find);
+
+
+                }else if(this.items.length>0){
+                    find.amount++;
+                    this.items.push(find);
+                }
+
+                // else {
+                //
+                //     find.amount++;
+                // }
+                this._render();
+            })
+            .catch(err => {
+                throw new Error(err)
+            })
+
+        // makeGETRequest(url)
+        //     .then(data => {
+        //     this.items = data;
+        //      this.items.map(el => {
+        //             el.amount = "1"
+        //         })
+        //
+        //     })
+        //     .catch(err => {
+        //         throw new Error(err)
+        //     })
+        //
+        // let find =this.items.find(el => el.id_product == item.id);
+        // if (!find) {
+        //
+        //     this.items.push(find);
+        //     this._render();
+        //
+        // } else {
+        //
+        //     find.amount++;
+        // }
     }
+
 
     remove(item) {
         let find = this.items.find(el => el.id_product == item.id);
@@ -129,35 +191,71 @@ class Catalog {
     constructor() {
         this.items = [];
         this.container = '.catalog-items';
-        this.init();
+        this.init()//рабочий
     }
 
-    init() {
-        this.items = fillCatalog();
-        this._render();
+    init() {//рабочий было init()
+        // this.items = fillCatalog();
+        makeGETRequest(url)
+            .then(data => {
+                this.items = data;
+                this._render();
+            })
+            .catch(err => {
+                throw new Error(err)
+            })
+
     }
+
 
     _render() {
         let htmlStr = '';
         this.items.forEach(item => {
             htmlStr += `<div class="catalog-item">
-                        <img src="${item.img}" alt="${item.product_name}">
-                        <div class="desc">
-                            <h3>${item.product_name}TEST</h3>
-                            <p>${item.price} $</p>
-                            <button
-                                class="buy-btn"
-                                name="buy"
-                                data-id="${item.id_product}"
-                            >Buy</button>
-                        </div>
-                    </div>`
+                            <img src="'https://static.sobaka.ru/images/image/00/80/54/85/_normal.jpg'" alt="${item.product_name}">
+                            <div class="desc">
+                                <h3>${item.product_name}TEST</h3>
+                                <p>${item.price} $</p>
+                                <button
+                                    class="buy-btn"
+                                    name="buy"
+                                    data-id="${item.id_product}"
+                                >Buy</button>
+                            </div>
+                        </div>`
         })
         document.querySelector(this.container).innerHTML = htmlStr;
     }
+
+
+    //рабочий:
+    // _render() {
+    //     let htmlStr = '';
+    //     this.items.forEach(item => {
+    //         htmlStr += `<div class="catalog-item">
+    //                     <img src="${item.img}" alt="${item.product_name}">
+    //                     <div class="desc">
+    //                         <h3>${item.product_name}TEST</h3>
+    //                         <p>${item.price} $</p>
+    //                         <button
+    //                             class="buy-btn"
+    //                             name="buy"
+    //                             data-id="${item.id_product}"
+    //                         >Buy</button>
+    //                     </div>
+    //                 </div>`
+    //     })
+    //     document.querySelector(this.container).innerHTML = htmlStr;
+    // }
 }
 
 let basket = new Basket()
+// basket.add(() => {
+//     basket._render()
+// })
 let catalog = new Catalog()
+// catalog.init(()=>{
+//     catalog._render()
+// })
 
 
