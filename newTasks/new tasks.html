@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="new%20task.css">
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    >
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+          integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+
+    <title>For Son</title>
+
+</head>
+<body>
+
+
+привет
+
+<div class="calendar">
+    <h1>1</h1>
+
+</div>
+<div class="slyd" id="main">
+    <button class="left" onclick="slider.left();"><</button>
+    <div id="src"><h1>text</h1></div>
+    <button class="right" onclick="slider.right();">></button>
+</div>
+
+
+<!--<script src="fizzBuzz.js"></script>-->
+<!--<script src="newTasks.js"></script>-->
+<!--<script src="task2.js"></script>-->
+<!--<script src="task3.js"></script>-->
+<!--<script src="task4.js"></script>-->
+<!--<script src="stringOperationsTask1.js"></script>-->
+<!--<script src="stringOperationTask2.js"></script>-->
+<!--<script src="stringOperationTask3.js"></script>-->
+<!--<script src="stringOperationTask4.js"></script>-->
+<!--<script src="stringOperationTask5.js"></script>-->
+<!--<script src="stringOperationTask6.js"></script>-->
+
+
+<button>Кнопка</button>
+<textarea>шш</textarea>
+
+<p>ДВОЙНОЙ КЛИК</p>
+
+Lorem ipsum
+<h2 class="animate__animated  animate">An animated element</h2>
+
+<button class="dblu">дважды ткнуть</button>
+<div>Текущее время: <span class="currentTime">0</span>
+</div>
+
+
+//видео
+<div class="player">
+
+    <video src="https://media.istockphoto.com/videos/free-range-chicken-video-id1325166530"></video>
+    <input type="range" class="timing" value="0" step="0.001">
+</div>
+<i class="fas fa-play"></i>
+<i class="fas fa-pause"></i>
+<input type="range" class="volume" min="0" max="1" step="0.01">
+
+
+<!-- Задание. Сделайте с помощью javascript размер шрифта в кнопке 30px,
+а в textarea сделайте зеленый фон. Используйте свойство style у каждого
+из элементов. -->
+<script>
+    function holiday() {
+        let date = new Date();
+        let today = date.getDate();
+        let month = date.getMonth() + 1;
+        let dr = `${today}.${month}`
+
+        switch (dr) {
+            case "11.12":
+
+                dr = "Tania Efimova";
+                break;
+            case "12.12":
+                dr = "Wasia";
+                break;
+            case "16.12":
+                dr = "завтра реснички";
+                break;
+            case "27.12":
+                dr = "завтра опять реснички";
+                break;
+            case "13.1":
+                dr = "сегодня Старый Новый Год";
+                break;
+            case "20.1":
+                dr = "завтра годовщина у Верхоробчиков";
+
+        }
+
+        let d = document.querySelector("div");
+        if (today === 13 && month === 1) {
+            d.style.backgroundImage = "url(https://afisha.london/wp-content/uploads/2020/12/zima-v-prostokvashino.jpg)";
+        } else if (today === 20 && month === 1) {
+            d.style.backgroundImage = "url(https://yarnovosti.com/gallery/news/2021/02/110146/RDjTV5_wPXQ.jpeg) ";
+            d.style.backgroundRepeat = "no-repeat"
+
+        } else {
+            d.style.background = "red";
+            d.style.color = "white";
+        }
+
+
+        let getElement = document.querySelector("h1");
+
+        getElement.innerText = `${dr}`;
+    }
+
+    holiday();
+
+    /**SLiDER*/
+    let slider = {
+
+        slides: ["https://secretmag.ru/thumb/1200x0/filters:quality(75):no_upscale()/imgs/2021/11/02/12/4999384/d53776b3b010f6c92bdf3e0d7946b938aabd8c08.webp", "https://www.ixbt.com/img/n1/news/2021/10/2/22459ff25f8eff76bddf34124cc2c85b16f4cd4a_large.jpg", "https://static9.depositphotos.com/1594308/1110/i/600/depositphotos_11107478-stock-photo-fantasy.jpg"],
+        frame: 0,
+        set: function (image) {
+            document.getElementById("src").style.backgroundImage = "url(" + image + ")";
+        },
+        init: function () {
+            this.set(this.slides[this.frame]);
+        },
+        left: function () {
+            this.frame--;
+            if (this.frame < 0) {
+                this.frame = this.slides.length - 1
+            }
+            this.set(this.slides[this.frame]);
+        },
+        right: function () {
+            this.frame++;
+            if (this.frame === this.slides.length) this.frame = 0;
+            this.set(this.slides[this.frame]);
+        }
+    };
+    window.onload = function () {
+        slider.init();
+        setInterval(function () {
+            slider.right();
+        }, 5000);
+    };
+
+</script>
+<!--//**слайдер**/-->
+<div class="slider" data-width="720px" data-heihht="480px" data-autoPlay="true">
+
+    <div class="slider-item hidden-slide">
+        <img src="https://picsum.photos/1920/1080?random=1" alt="#">
+    </div>
+    <div class="slider-item hidden-slide">
+        <img src="https://picsum.photos/1920/1080?random=2" alt="#">
+    </div>
+    <div class="slider-item hidden-slide">
+        <img src="https://picsum.photos/1920/1080?random=3" alt="#">
+    </div>
+</div>
+
+
+/*****5urok***/
+
+
+<div class="card_pink">
+    <div class="card" data-title="василек" data-price="30" id="3">
+        <p>цена: 30</p>
+        <p>количество: 1</p>
+        <p>наименование: василек</p>
+    </div>
+    <div class="card" data-title="мимоза" data-price="50" id="1">
+        <p>цена: 50</p>
+        <p>количество: 1</p>
+        <p>наименование: мимоза</p>
+    </div>
+    <div class="card" data-title="ромашка" data-price="20" id="2">
+        <p>цена: 20</p>
+        <p>количество: 1</p>
+        <p>наименование: ромашка</p>
+    </div>
+</div>
+<div class="total" data-title="0" data-price="0" id="4">
+    <p>итого</p>
+    <p>выбрано товаров: 0</p>
+    <p>Состав букета: </p>
+    <p>наименование</p>
+</div>
+
+<script>
+
+
+    /* корзина*/
+
+    let total = document.querySelector(".total")//иговая графа
+
+
+    let itog = total.querySelectorAll("p")//все парагафы
+
+    let card20 = 0
+    /**ценники по кажд карточке:
+     * @romashka number
+     * * @wasilek number
+     * * @mimoza number
+     */
+    let romashka = Number(document.getElementById("2").dataset.price);
+    let wasilek = Number(document.getElementById("3").dataset.price);
+    let mimoza = Number(document.getElementById("1").dataset.price);
+
+
+    /** итоговая сумма по всем выбранным товарам
+     * @set общий div с карточками
+     *  @vibor присваивание события, при которм подсчитывается общая стоимость товаров
+     * @itogo первоначальная сумма корзины(нулевой массив)
+     * @itogo1 складываем все ценнмки массива корзинки
+     * itogoCena ф-я выбирает стоимость и складывает в общую сумму
+     * */
+
+    let set = document.querySelector(".card_pink")
+    let itogo = [0]
+
+    function itogoCena(event) {
+        itogo.push(Number(event.currentTarget.dataset.price));
+        let itogo1 = itogo.reduce((a, b) =>
+            a + b)
+        console.log(itogo1)
+        itog[0].textContent = "итого " + itogo1
+    }
+
+
+    /** выводим название выбранного товара
+     * @naimenovanie1 все параграфы по каждой карточке товара
+     * @naimenovanie2 массив с наименованиями товаров
+     * **/
+
+    let naimenovanie=[]
+    function vivodNazvaniya(event) {
+
+        naimenovanie.push(event.currentTarget.dataset.title)
+        console.log(naimenovanie)
+
+        itog[3].textContent = naimenovanie.join(", ")
+        console.log(itog[3].textContent )
+    }
+/**подсчет количества товатов в штуках
+ *
+ * */
+let itog1 = []
+    function vsegoTovarov (){
+       itog1.push(Number(1))
+        let itog2 = itog1.reduce((a,b)=>a+b)
+console.log(itog2);
+        itog[1].textContent  = "выбрано товаров: " +itog2
+    }
+
+
+    let vibor = set.querySelectorAll("div").forEach(function (button) {
+        button.addEventListener("click", itogoCena);
+        button.addEventListener("click", vivodNazvaniya)
+        button.addEventListener("click", vsegoTovarov)
+    })
+
+</script>
+
+
+<script src="slider-po-uroku.js"></script>
+<script src="video.js"></script>
+</body>
+</html>
+
+
