@@ -1,0 +1,163 @@
+.calendar {
+    background: #1c1c9f;
+    width: 700px;
+    height: 500px;
+    color: red;
+    padding: 30px;
+}
+#main{
+    position: relative;
+    margin: 100px auto;
+    padding: 5px;
+    width: 660px;
+    height: 360px;
+    background-color: silver;
+    border: 5px solid grey;
+    border-radius: 15px;
+}
+#src{
+    margin: 10px auto;
+    width: 600px;
+    height: 280px;
+    background-color: white;
+    background-size: cover;
+    border: 2px solid black;
+    border-radius: 10px;
+    }
+h1{
+    color: white;
+    margin: 100px 250px;
+    padding-top: 150px;
+
+}
+button{
+    /*position: absolute;*/
+    /*top: 150px;*/
+    /*width: 25px;*/
+    /*height: 70px;*/
+    /*font: 12pt Arial, Tahoma, sans-serif;*/
+    /*text-align: center;*/
+}
+.left{
+    left: 5px;
+    position: absolute;
+    top: 150px;
+    width: 25px;
+    height: 70px;
+    font: 12pt Arial, Tahoma, sans-serif;
+    text-align: center;
+}
+.right{
+    right: 5px;
+    position: absolute;
+    top: 150px;
+    width: 25px;
+    height: 70px;
+    font: 12pt Arial, Tahoma, sans-serif;
+    text-align: center;
+}
+.animate__bounce {
+    -webkit-animation-name: bounce;
+    animation-name: bounce;
+    -webkit-transform-origin: center bottom;
+    transform-origin: center bottom;
+    color: red;
+}
+
+.dblu{
+    position:relative;
+
+
+}
+.player{
+    width: 600px;
+}
+video{
+    width: 100%;
+}
+.timing{
+    width: 100%;
+}
+/*слайдер по урокам кубикова*/
+.slider{
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    margin-top: 100px;
+}
+.slider-item{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+
+}
+.slider-item img{
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+.hidden-slide{
+    visibility: hidden;/*даем возможность прятать слайд*/
+}
+.fas.fa-spinner.fa-spin{
+    font-size: 50px;
+  color: black;
+    position: absolute;
+    left: calc(50% - 25px);
+    top: calc(50% - 25px);;
+  }
+
+.slider-leftArrow,
+.slider-rightArrow{
+    position: absolute;
+    top: 47%;
+    z-index: 3;
+    color: black;
+    cursor: pointer;
+    font-size: 50px;
+}
+
+.slider-leftArrow{
+    left: 5%;
+}
+.slider-rightArrow{
+    right: 5%;
+}
+
+/**урок*/
+i {
+    font-size: 50px;
+
+}
+.golden {
+    color: gold;
+}
+.card{
+    background: hotpink;
+    border: 2px solid blue;
+    width: 200px;
+    height: 300px;
+    font-size: 20px;
+    color: black;
+   margin: 30px;
+    align-items: center;
+}
+
+.card_pink{
+    display: flex;
+}
+.total{
+    width: 710px;
+    height: 200px;
+    border: 2px solid blue;
+    margin: 30px;
+    display: flex;
+
+}
+.total p{
+    padding: 20px;
+}
