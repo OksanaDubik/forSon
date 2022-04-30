@@ -1,0 +1,22 @@
+[
+  {
+    "id_product": 123,
+    "product_name": "Сапоги",
+    "price": 12000
+  },
+  {
+      "id_product": 789,
+      "product_name": "сумка",
+      "price": 7000
+    },
+    {
+        "id_product": 101,
+        "product_name": "платье",
+        "price": 4600
+      },
+  {
+    "id_product": 456,
+    "product_name": "Шарфик",
+    "price": 1000
+  }
+]
