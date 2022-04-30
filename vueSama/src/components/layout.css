@@ -1,0 +1,9 @@
+button{
+    border: 1px solid green;
+    width: 120px;
+    height: 110px;
+    background: chartreuse;
+}
+p{
+    color: chocolate;
+}

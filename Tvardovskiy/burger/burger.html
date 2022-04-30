@@ -5,42 +5,54 @@
     <title>Burger</title>
 </head>
 <body>
-
+<div id="app">
+    <p>{{ test }}</p>
+<div :style = styleDisplay>
 <form action="#" id="uForm">
 
-    <fieldset>
+
+    <fieldset :style="style" >
         <label>
-            <input type="radio" name="size" value="small" data-price="50" data-cal='200' data-tex="Маленький бургер"  checked> Маленький бургер
+            <input type="radio" name="size" value="small" data-price="50" data-cal='200' data-tex="Маленький бургер: "  checked> Маленький бургер. стоимость:50, калории:200
         </label>
-        <label>
-            <input type="radio" name="size" value="big" data-price="100" data-cal='300' data-tex="Большой бургер" > Большой бургер
-            <fieldset>
-                <input type="radio" name="type" value="cheese" data-cal='25' data-tex="Сыр" > Сыр
-                <input type="radio" name="type" value="salad" data-cal='3' data-tex="Салат"> Салат
-                <input type="radio" name="type" value="potato" data-cal='55' data-tex="Картофель"> Картофель
+        <label >
+            <input type="radio" name="size" value="big" data-price="100" data-cal='300' data-tex="Большой бургер: " > Большой бургер. стоимость:100, калории:300
+            <fieldset :style={style,fontStyle}>
+                <input type="radio" name="type" value="cheese" data-cal='25' data-tex="Сыр " > Сыр. калории:25
+                <input type="radio" name="type" value="salad" data-cal='3' data-tex="Салат "> Салат. калории:3
+                <input type="radio" name="type" value="potato" data-cal='55' data-tex="Картофель "> Картофель. калории:55
             </fieldset>
         </label>
     </fieldset>
-    <fieldset>
+    <fieldset :style="style">
         <label>
-            <input type="checkbox" name="add" value="seasoning" data-price="15" data-cal='5' data-tex="Приправа"> Приправа
+            <input type="checkbox" name="add" value="seasoning" data-price="15" data-cal='5' data-tex="Приправа "> Приправа. стоимость:15, калории:5
         </label>
         <label>
-            <input type="checkbox" name="add" value="bacon" data-price="25" data-cal='20' data-tex="Бекон"> Бекон
+            <input type="checkbox" name="add" value="bacon" data-price="25" data-cal='20' data-tex="Бекон "> Бекон. стоимость:25, калории:20
         </label>
         <label>
-            <input type="checkbox" name="add" value="cheese" data-price="20" data-cal='25' data-tex="Сыр"> Сыр
+            <input type="checkbox" name="add" value="cheese" data-price="20" data-cal='25' data-tex="Сыр "> Сыр. стоимость:20, калории:25
         </label>
         <label>
-            <input type="checkbox" name="add" value="mayonese" data-price="10" data-cal='30' data-tex="Майонез"> Майонез
+            <input type="checkbox" name="add" value="mayonese" data-price="10" data-cal='30' data-tex="Майонез "> Майонез. стоимость:10, калории:30
         </label>
     </fieldset>
 </form>
-<button id="okBtn">Done</button>
 
-<p id='price'>общая сумма: </p>
-<p id='calories'>Всего каллорий: </p>
-<p id="order">Ваш заказ:</p>
+
+<div class="paragraph" :style="style">
+<p id='price' >общая сумма: {{ totalPrice }} </p>
+<p id='calories'>Всего каллорий:  {{ totalCalories }} </p>
+<p  :style="styleParagraph" id="order" >Ваш заказ: {{ totalText.join(" +") }}</p>
+</div>
+</div>
+    <button id="okBtn" @click="Burger, Add, Order " :style="styleButton">показать набор</button>
+<button id = "clear" @click="clearBurger, clearAdd, clearOrder"  :style="styleButton">очистисть</button>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 <script src="burger.js"></script>
 </body>
 

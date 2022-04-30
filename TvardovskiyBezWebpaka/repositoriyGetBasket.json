@@ -1,8 +1,7 @@
 {
 "totalAmount":0,
 "totalPrice": 0,
-"contents":
-  [
+"contents":[
   {
     "id_product": 123,
     "product_name": "Сапоги",

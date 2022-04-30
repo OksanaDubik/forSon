@@ -3,12 +3,12 @@ let prices = [100, 120, 130, 50, 150];
 let ids = [1, 2, 3, 4, 5];
 let imgs = ['https://static.sobaka.ru/images/image/00/80/54/85/_normal.jpg', 'https://images.androeed.ru/icons/2022/03/19/ico-haker-simulyator-zhizni-smartfon-magnat-bomzhara-1647703922.webp', 'https://coddyschool.com/upload/iblock/a8d/hack3_min.png', "https://3dnews.ru/assets/external/illustrations/2020/01/19/1001778/21.jpg", 'https://thebell.io/wp-content/uploads/2017/12/hacker-2300772_1280.jpg',]
 
-let createItem = index => ({
-    product_name: names[index],
-    price: prices[index],
-    id_product: ids[index],
-    img: imgs[index]
-});
+// let createItem = index => ({
+//     product_name: names[index],
+//     price: prices[index],
+//     id_product: ids[index],
+//     img: imgs[index]
+// });
 
 let fillCatalog = () => {
     ids.forEach((el, index) => {
@@ -126,28 +126,15 @@ let catalog = {
 basket.init();
 catalog.init();
 
-let a;
-function getRequest (){
-    return new Promise((res, rej)=>{
-        a = 1000
-        setTimeout(()=>{
-            if (a){
-                res ("a= "+a)
-            }else {
-                rej("*******OKSANA OKSANA error******* ");
-            }
-        }, 3000)
+function avg() {
+
+    let arr = Array.from([1,2,3])
+    let lengths = arr.length
+    let arrMap = arr.map(el=>el/lengths).reduce (function(a,b){
+        return a+b
     })
+    console.log(arrMap)
 }
-getRequest()
-    .then(resolved =>{
-        alert(resolved)
-    })
-    .catch(napisano=>{
-        alert("ничего не получилось")
-        throw new Error(napisano)
-    })
-    .finally(()=>{
-        alert("всё кончено")
-    })
+avg()
+
 
