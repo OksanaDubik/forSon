@@ -1,0 +1,26 @@
+
+.nav {
+    padding: 16px;
+    grid-area: n;
+    background: lightgreen;
+    display: grid;
+
+}
+.item {
+    color: #e7450a;
+    text-decoration: none;
+}
+.active:hover{
+    background: crimson;
+}
+.activeLink {
+color: #ececef;
+    text-decoration: none;
+}
+/*a{*/
+/*    text-decoration: none;*/
+/*}*/
+/*a[class="active"]{*/
+/*    color: gold;*/
+/*    text-decoration: none;*/
+/*}*/

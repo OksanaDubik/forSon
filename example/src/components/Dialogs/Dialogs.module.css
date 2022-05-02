@@ -1,0 +1,24 @@
+
+.message{
+    color: crimson;
+}
+.dialogs{
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+.dialogsItem{
+    padding: 10px;
+}
+.message{
+    padding: 10px;
+}
+.active{
+    color: #557ec6;
+}
+a {
+    text-decoration: none;
+}
+a[class = 'active']{
+    color: black;
+}
