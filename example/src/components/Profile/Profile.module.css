@@ -1,0 +1,32 @@
+.profile {
+    display: flex;
+    margin : 15px 0 15px;
+
+}
+.mayProfile{
+    margin: 0 0 0 15px;
+
+}
+
+.profilePost {
+    background: #c4c3c3;
+    width: 100%;
+}
+
+.profilePostBtn {
+    margin-left: 85%;
+}
+
+.profilePostNobody {
+    display: grid;
+}
+
+.postFirst {
+    margin: 15px 0;
+}
+.postTwo{
+    margin-bottom: 10px;
+}
+.item{
+    color: green;
+}

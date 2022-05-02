@@ -1,0 +1,14 @@
+
+.profilePostNobody {
+    display: grid;
+}
+
+/*.postFirst {*/
+/*    margin: 15px 0;*/
+/*}*/
+/*.postTwo{*/
+/*    margin-bottom: 10px;*/
+/*}*/
+.profilePostNobody img{
+    width: 50px;
+}

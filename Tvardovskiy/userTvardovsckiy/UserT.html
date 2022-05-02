@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+</head>
+<body>
+<form action="#" id="uForm">
+<fieldset>
+    <label>
+    <input type="text" name="Name"> Enter Name
+    </label>
+    <label>
+        <input type="text" name="Age"> Enter Age
+    </label>
+</fieldset>
+<label>
+    <input type="radio" name="Gender" value="male" data-mother="0"> male
+</label>
+<label>
+    <input type="radio" name="Gender" value="female" data-mother="1"> female
+</label>
+<fieldset>
+    <label>
+        <input type="checkbox" name="Hobbies" value="eat"> eat
+    </label>
+    <label>
+        <input type="checkbox" name="Hobbies" value="eat"> eat
+    </label>
+    <label>
+        <input type="checkbox" name="Hobbies" value="gym"> gum
+    </label>
+    <label>
+        <input type="checkbox" name="Hobbies" value="tv-show">tv-show
+    </label>
+    <label>
+        <input type="checkbox" name="Hobbies" value="walk">walk
+    </label>
+</fieldset>
+</form>
+<button id = "okBtn">Add user</button>
+
+<script>
+    let form = document.querySelector("#uForm");
+    let btn = document.querySelector("#okBtn");
+    let users = [];
+    btn.addEventListener("click", addUser)
+    function addUser (){
+        let newUser= new User ("Name", "Age", "Gender","Hobbies")
+        users.push(newUser)
+    }
+    class User {
+        constructor(name, age, gender, hobbies) {
+            this.Name = this._text(name)
+            this.Age = this._text(age)
+            this.Gender = this._check(gender)
+            this.Hobbies = this._getArray(hobbies)
+            this.canBeMother = this._checkMom (gender)
+        }
+        _text(attrName){
+            let obj = document.querySelector(`input[name = ${attrName} ]`)
+            return obj.value
+        }
+        _check (attrName){
+            let obj = document.querySelector(`input[name = ${attrName} ]:checked`)
+            return obj.value
+        }
+        _getArray(attrName){
+            let objArray =[...document.querySelectorAll(`input[name=${attrName}]:checked`)]
+            let arr = objArray.map(el => el.value)
+return arr
+
+        }
+        _checkMom (attrName){
+            let obj = document.querySelector(`input[name = ${attrName}]:checked`)
+            console.log(obj)
+            return +obj.dataset['mother']? true : false
+        }
+    }
+</script>
+</body>
+</html>

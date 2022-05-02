@@ -1,0 +1,10 @@
+.header {
+    padding: 15px;
+    grid-area: h;
+    background: lightcoral;
+}
+
+.header img {
+    width: 50px;
+}
+
